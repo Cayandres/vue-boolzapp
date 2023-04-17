@@ -5,7 +5,8 @@
 }
 
 body{
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 img{
@@ -15,6 +16,7 @@ img{
 .margin-l{
   margin-left: 10px;
 }
+
 
 .main-wrapper{
   height: 100vh;
@@ -27,14 +29,13 @@ img{
 .container{
   width: 80%;
   height: 95%;
-  background-color: lightgrey;
+
   display: flex;
 }
 
 .container-left{
   height: 100%;
   width: 35%;
-  background-color: azure;
 }
 
 .box-left, 
@@ -60,7 +61,8 @@ img{
 }
 
 .box-left img,
-.box-right img{
+.box-right img,
+.contacts img{
   height: 80%;
   border-radius: 50%;
 }
@@ -118,6 +120,11 @@ img{
   color: rgb(175, 174, 174);
 }
 
+.contacts{
+  height: 535px;
+  overflow: scroll;
+}
+
 .container-right{
   height: 100%;
   width: 65%;
@@ -149,6 +156,32 @@ img{
 
 .container-right .text-area i:last-child{
 padding-right: 15px;
+}
+
+.contacts .contact{
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.contacts .contact:hover{
+  background-color: lightgrey;
+}
+
+.contacts img{
+  height: 50px;
+  margin: 0 10px;
+  background-color: brown;
+}
+
+.contacts li{
+ list-style: none;
+}
+.contacts li:first-child{
+  font-weight: 600;
+}
+.contacts li:last-child{
+  font-size: 10px;
 }
 
 

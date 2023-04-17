@@ -42,14 +42,27 @@
             <i class="margin-l fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder=" Cerca o inizia una nuova chat">
           </div>
+          
+          <div class="contacts">
+            <div v-for="(contact, index) in contacts" class="contact">
+              <img :src="contact.avatar" alt="">
+              <ul>
+                <li>
+                  <span class="d-block">{{contact.name}}</span>
+                </li>
+                <li>
+                  <span>Ultimo accesso non disponibile</span>
+                </li>
+              </ul>
 
-        </div>
 
-        <div class="contacts">
-          <div class="contact">
 
+  
+            </div>
           </div>
+
         </div>
+
 
         <div class="container-right">
           <div class="box-right top">
