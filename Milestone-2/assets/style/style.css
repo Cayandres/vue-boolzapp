@@ -17,6 +17,14 @@ img{
   margin-left: 10px;
 }
 
+.justify-end{
+  justify-content: end;
+}
+
+.justify-start{
+  justify-content: start;
+}
+
 
 .main-wrapper{
   height: 100vh;
@@ -132,9 +140,29 @@ img{
 }
 
 .container-right .messages{
+  display: flex;
   height: 84%;
   background-image: url(/Milestone-2/assets/img/mine.jpg);
 }
+
+.container-right ul{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container-right .messages .message{
+  display: flex;
+  list-style: none;
+}
+
+.container-right .messages .message-box{
+  height: 80px;
+  width: 200px;
+  margin: 30px;
+  background-color: #009688;
+}
+
 
 .container-right .text-area{
   height: 8%;
