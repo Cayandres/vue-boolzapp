@@ -183,9 +183,20 @@ createApp({
             message : this.newMessage,
             status: 'sent'
       }
-    this.contacts[this.activeContact].messages.push(addedMessage);
-    this.newMessage = '';
-      }
+      this.contacts[this.activeContact].messages.push(addedMessage);
+      this.newMessage = '';
+      setTimeout(this.messageChat,1000)
+    },
+
+    messageChat(){
+        const aswer={
+            date: '18/04/2023',
+            message : 'ok',
+            status: 'received'
+        }
+        this.contacts[this.activeContact].messages.push(aswer)
+    } 
+
 }
 
 }).mount('#app')
