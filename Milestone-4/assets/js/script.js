@@ -166,7 +166,7 @@ createApp({
       }
   ],
   activeContact: 0,
-  newMessage :''
+
    }
   },
 
@@ -174,18 +174,7 @@ createApp({
     changeContact(index){
         //al click del contatto cerco l'index del ciclo e lo assegno ad activeContact
         this.activeContact = index;
-      },
-    
-    addNewMessage(){
-        //Quando premo invio faccio il push del nuovo oggetto nell'array
-      const addedMessage = {
-            date: '18/04/2023',
-            message : this.newMessage,
-            status: 'sent'
       }
-    this.contacts[this.activeContact].messages.push(addedMessage);
-    this.newMessage = '';
-      }
-}
 
+  }
 }).mount('#app')
