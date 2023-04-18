@@ -120,6 +120,7 @@ img{
 }
 
 .container-right .messages{
+  overflow-y: visible;
   display: flex;
   height: 84%;
   background-image: url(/Milestone-2/assets/img/mine.jpg);
@@ -148,14 +149,6 @@ img{
   height: 8%;
   display: flex;
 
-    
-          
-            
-    
-
-          
-    
-    
   
   justify-content: space-around;
   align-items: center;
