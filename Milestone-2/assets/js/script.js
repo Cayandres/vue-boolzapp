@@ -165,17 +165,13 @@ createApp({
               }
           ],
       }
-  ],
-  activeContact: 0,
+  ]
+  
  
    }
   },
   
   methods:{
-    changeContact(index){
-        //al click del contatto cerco l'index del ciclo e lo assegno ad activeContact
-        this.activeContact = index;
-      }
   
   }
 }).mount('#app')

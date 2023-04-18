@@ -44,8 +44,7 @@
           </div>
           
           <div class="contacts">
-            <div v-for="(contact, index) in contacts" class="contact"
-             @click="changeContact(index)">
+            <div v-for="(contact, index) in contacts" class="contact">
               <img :src="contact.avatar" alt="">
               <ul>
                 <li>
@@ -78,17 +77,6 @@
             </div>
           </div>
           <div class="messages">
-            <ul>
-              <li v-for="(message, index) in contacts[activeContact].messages"
-              class="message"
-              :class="message.status === 'sent' ? 'justify-end' : 'justify-start'">
-              <div class="message-box "
-              :class="message.status">
-                <span>{{message.message}}</span>
-                <span>{{message.date}}</span>
-              </div>
-              </li>
-            </ul>
 
           </div>
 
