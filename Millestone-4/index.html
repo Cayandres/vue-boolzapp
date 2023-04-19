@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      
+      <div class="container">
+      
+        <div class="container-left">
+      
+          <div class="box-left top">
+            <div class="user">
+              <img class="margin-l" src="assets/img/avatar_io.jpg" alt="my-photo">
+              <span>Sofia</span>
+            </div>
+            <div class="logos">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-regular fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <div class="box-left notification">
+            <i class="fa-sharp fa-solid fa-bell-slash"></i>
+            <div>
+              <span>Ricevi notifiche di nuovi messaggi</span>
+              <span>Attiva notifiche desktop</span>
+            </div>
+          </div>
+          <div class="search">
+            <i class="margin-l fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder=" Cerca o inizia una nuova chat">
+          </div>
+
+          <div class="contacts">
+            <div v-for="(contact, index) in contacts" class="contact"
+             @click="changeContact(index)">
+              <img :src="contact.avatar" alt="">
+              <ul>
+                <li>
+                  <span class="d-block">{{contact.name}}</span>
+                </li>
+                <li>
+                  <span>Ultimo accesso non disponibile</span>
+                </li>
+              </ul>
+  
+            </div>
+          </div>
+        </div>
+        <div class="container-right">
+          <div class="box-right top">
+            <div class="user">
+              <img class="margin-l" src="assets/img/avatar_io.jpg" alt="my-photo">
+              <span>Sofia</span>
+            </div>
+            <div class="logos">
+              <i class="margin-l fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-paperclip"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <div class="messages">
+            <ul>
+              <li v-for="(message, index) in contacts[activeContact].messages"
+              class="message"
+              :class="message.status === 'sent' ? 'justify-end' : 'justify-start'">
+              <div class="message-box "
+              :class="message.status">
+                <span>{{message.message}}</span>
+                <span>{{message.date}}</span>
+              </div>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="text-area">
+            <i class="fa-regular fa-face-smile"></i>
+            <input @keyup.enter="addNewMessage()" 
+            v-model.trim="newMessage" type="text" placeholder="Scrivi un messaggio">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
