@@ -37,23 +37,21 @@
           </div>
           <div class="search">
             <i class="margin-l fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder=" Cerca o inizia una nuova chat">
+            <input @keyup="searchInput()" v-model="getUser" type="text" placeholder=" Cerca o inizia una nuova chat">
           </div>
 
           <div class="contacts">
-            <div v-for="(contact, index) in contacts" class="contact"
-             @click="changeContact(index)">
-              <img :src="contact.avatar" alt="">
               <ul>
-                <li>
-                  <span class="d-block">{{contact.name}}</span>
-                </li>
-                <li>
+                <li
+                v-for="(contact, index) in contacts" class="contact" 
+                @click="changeContact(index)"
+                :class="{'active': index === activeContact,  'hide': contact.visible === false}">
+                  <img :src="contact.avatar" alt="">
+                  <span>{{contact.name}}</span>
                   <span>Ultimo accesso non disponibile</span>
                 </li>
               </ul>
-  
-            </div>
+
           </div>
         </div>
         <div class="container-right">
@@ -68,6 +66,7 @@
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
+
           <div class="messages">
             <ul>
               <li v-for="(message, index) in contacts[activeContact].messages"
@@ -85,7 +84,8 @@
 
           <div class="text-area">
             <i class="fa-regular fa-face-smile"></i>
-            <input @keyup.enter="addNewMessage()" 
+            <input 
+            @keyup.enter="addNewMessage()" 
             v-model.trim="newMessage" type="text" placeholder="Scrivi un messaggio">
             <i class="fa-solid fa-microphone"></i>
           </div>

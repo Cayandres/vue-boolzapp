@@ -6,7 +6,7 @@ createApp({
       {
           name: 'Michele',
           avatar: 'assets/img/avatar_1.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '10/01/2020 15:30:55',
@@ -28,7 +28,7 @@ createApp({
       {
           name: 'Fabio',
           avatar: 'assets/img/avatar_2.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '20/03/2020 16:30:00',
@@ -50,7 +50,7 @@ createApp({
       {
           name: 'Samuele',
           avatar: 'assets/img/avatar_3.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '28/03/2020 10:10:40',
@@ -72,7 +72,7 @@ createApp({
       {
           name: 'Alessandro B.',
           avatar: 'assets/img/avatar_4.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '10/01/2020 15:30:55',
@@ -89,7 +89,7 @@ createApp({
       {
           name: 'Alessandro L.',
           avatar: 'assets/img/avatar_5.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '10/01/2020 15:30:55',
@@ -106,7 +106,7 @@ createApp({
       {
           name: 'Claudia',
           avatar: 'assets/img/avatar_6.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '10/01/2020 15:30:55',
@@ -128,7 +128,7 @@ createApp({
       {
           name: 'Federico',
           avatar: 'assets/img/avatar_8.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '10/01/2020 15:30:55',
@@ -145,7 +145,7 @@ createApp({
       {
           name: 'Davide',
           avatar: 'assets/img/avatar_io.jpg',
-          visible: true,
+          visible: '',
           messages: [
               {
                   date: '10/01/2020 15:30:55',
@@ -166,7 +166,8 @@ createApp({
       }
   ],
   activeContact: 0,
-  newMessage :''
+  newMessage :'',
+  getFromFinder:''
    }
   },
 
@@ -195,8 +196,18 @@ createApp({
             status: 'received'
         }
         this.contacts[this.activeContact].messages.push(aswer)
-    } 
+    } ,
 
-}
+    searchInput(){
+
+        this.contacts.forEach(contact => {
+          if (!contact.name.toLowerCase().includes(this.getUser.toLowerCase())){
+            contact.visible = false;
+          } else { 
+            contact.visible = true;
+          }
+        })
+      }
+  }
 
 }).mount('#app')
