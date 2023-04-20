@@ -167,7 +167,7 @@ createApp({
   ],
   activeContact: 0,
   newMessage :'',
-  getFromFinder:''
+  getUser:''
    }
   },
 

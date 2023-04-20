@@ -19,8 +19,8 @@
       
           <div class="box-left top">
             <div class="user">
-              <img class="margin-l" src="assets/img/avatar_io.jpg" alt="my-photo">
-              <span>Sofia</span>
+              <img class="margin-l" src="assets/img/avatar_2.jpg" alt="my-photo">
+              <span class="name-user-top">Andres</span>
             </div>
             <div class="logos">
               <i class="fa-solid fa-circle-notch"></i>
@@ -43,12 +43,16 @@
           <div class="contacts">
               <ul>
                 <li
-                v-for="(contact, index) in contacts" class="contact" 
+                v-for="(contact, index) in contacts" class="contact d-flex" 
                 @click="changeContact(index)"
                 :class="{'active': index === activeContact,  'hide': contact.visible === false}">
                   <img :src="contact.avatar" alt="">
-                  <span>{{contact.name}}</span>
-                  <span>Ultimo accesso non disponibile</span>
+                  <ul class="data-user">
+                    <li><span class="name">{{contact.name}}</span></li>
+                    <li><span class="hour-message">Ultimo accesso non disponibile</span>
+                    </li>
+                  </ul>
+                  <span class="hour">10:00</span>
                 </li>
               </ul>
 
@@ -56,10 +60,18 @@
         </div>
         <div class="container-right">
           <div class="box-right top">
-            <div class="user">
-              <img class="margin-l" src="assets/img/avatar_io.jpg" alt="my-photo">
-              <span>Sofia</span>
+
+            <div
+               v-for="(contact, index) in contacts" 
+               class="user hide"
+               :class="{'d-block': index === activeContact}">
+              <img class="margin-l" 
+              :src="contact.avatar" 
+              alt="my-photo"
+              >
+              <span class="name name-user-top">{{contact.name}}</span>
             </div>
+
             <div class="logos">
               <i class="margin-l fa-solid fa-magnifying-glass"></i>
               <i class="fa-solid fa-paperclip"></i>
@@ -72,10 +84,11 @@
               <li v-for="(message, index) in contacts[activeContact].messages"
               class="message"
               :class="message.status === 'sent' ? 'justify-end' : 'justify-start'">
-              <div class="message-box "
-              :class="message.status">
+              <div 
+              class="message-box "
+              :class="message.status === 'sent' ? 'b-green' : 'b-white'">
                 <span>{{message.message}}</span>
-                <span>{{message.date}}</span>
+                <span class="date">10:30</span>
               </div>
               </li>
             </ul>
